@@ -1,4 +1,3 @@
-
 '''
 pi[q] = k:
 	from matching: when q + 1 character doesn't match, restart from k to try
@@ -9,9 +8,9 @@ def compute_prefix_function(p):
     m = len(p)
     pi = [0] * m
     k = 0
-    for q in range(1, m):
+    for q in range(1, m): # ATTENTION: here starts from 1
         while k > 0 and p[k] != p[q]: 
-	   	k = pi[k - 1] # the same as matching, using the prev index to restart matching, note how similar it is with the follwing function
+	   k = pi[k - 1] # the same as matching, using the prev index to restart matching, note how similar it is with the follwing function
         if p[k] == p[q]:
             k = k + 1
         pi[q] = k
